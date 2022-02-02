@@ -5,6 +5,8 @@ fun main(args: Array<String>) {
 
     var Entry_Val: Float = 1.1F
     var Total_Cost: Float = 0.0F
+    val tax = .025
+    val tip = .175
     val Dollar = DecimalFormat("$###,###,###.00")
 
     println("Enter cost of items.  Program will assume a 2.5% tax (joke!!) and will calculate a 17.5% tip.")
@@ -18,8 +20,8 @@ fun main(args: Array<String>) {
     }
 
     println("Total Cost = " +Dollar.format(Total_Cost))
-    println("Total Cost with a 2.5% Tax = " +Dollar.format(Total_Cost * 1.025))
-    println("Recommended Tip (17.5%) on purchases = " +Dollar.format(Total_Cost * .175))
+    println("Total Cost with a 2.5% Tax = " +Dollar.format(Total_Cost * (1+tax)))
+    println("Recommended Tip (17.5%) on purchases = " +Dollar.format(Total_Cost * (1+tax) * tip))
 
     println("Program arguments: ${args.joinToString()}")
 }
